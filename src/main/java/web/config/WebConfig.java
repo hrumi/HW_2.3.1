@@ -20,15 +20,15 @@ public class WebConfig implements WebMvcConfigurer {
 
     public WebConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
-    }
+    } //мб @Autowired
 
 
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/pages/");
-        templateResolver.setSuffix(".html");
+        templateResolver.setPrefix("/WEB-INF/pages/"); //где лежат views
+        templateResolver.setSuffix(".html");  //расширение файлов - представлений
         return templateResolver;
     }
 
@@ -42,7 +42,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 
     @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
+    public void configureViewResolvers(ViewResolverRegistry registry) {  //вместо стандартного шаблонизатора use Thymeleaf
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
