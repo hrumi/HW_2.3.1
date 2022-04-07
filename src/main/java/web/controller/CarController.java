@@ -20,7 +20,7 @@ public class CarController {
         } else {
             carList = new CarServiceImpl().getCars(Integer.parseInt(count));
         }
-        model.addAttribute("message", carList);
+        model.addAttribute("message", carList); //model передается в представление, "message" - это ключ, имя - любое
         return "cars";                  //Имя view, которое мы вернем
     }
 }
