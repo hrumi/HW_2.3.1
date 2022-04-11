@@ -33,21 +33,21 @@ public class UserController {
         return "edit";
     }
 
+    @GetMapping("/{id}/delete")
+    public String deleteUser(@PathVariable("id") int id) {
+        userService.deleteUser(id);
+        return "redirect:/users";
+    }
+
     @PostMapping() //ловим ПОСТ запрос из view new
     public String addNewUser(@ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/users";
     }
 
-//    @PostMapping("/edit")  //отправка данных страницы изменения в БД
-//    public String controllerEditUser(@ModelAttribute("user") User user) {
-//        userService.updateUser(user);
-//        return "redirect:/users";
-//    }
-
     @PatchMapping ("/{id}")  //отправка данных страницы изменения в БД
     public String EditUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-        userService.updateUser(id, user);
+        userService.updateUser(id - 1, user);
         return "redirect:/users";
     }
 

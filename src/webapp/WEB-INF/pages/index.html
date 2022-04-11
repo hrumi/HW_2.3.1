@@ -32,9 +32,8 @@
 </table>
 
 <br>
-<a th:href="/new"> Create new User </a>
-<div>
 
+<div>
     <form th:method="POST" th:action="@{/users}">
         <label for="name">Name</label>
         <input name="name" type="text" id="name">
@@ -46,11 +45,6 @@
     </form>
 </div>
 
-<!--<div>-->
-<!--    <th:block th:each="user : ${usersList}">-->
-<!--        <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getName()}"></a>-->
-<!--    </th:block>-->
-<!--</div>-->
 
 </body>
 </html>
