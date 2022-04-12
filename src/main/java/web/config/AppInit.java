@@ -23,8 +23,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         };
     }
 
-
-    /* Данный метод указывает url, на котором будет базироваться приложение */
     //все Http-запросы пользователя шлем на диспатчер сервлет
     @Override
     protected String[] getServletMappings() {
@@ -37,6 +35,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         registerHiddenFieldFilter(aServletContext);
     }
 
+    //фильтр
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter",
                 new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
