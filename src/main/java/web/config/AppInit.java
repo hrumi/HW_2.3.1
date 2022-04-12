@@ -14,7 +14,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         return null;
     }
 
-
     // подставляем конфигурацию Webconfig
     @Override
     protected Class<?>[] getServletConfigClasses() {

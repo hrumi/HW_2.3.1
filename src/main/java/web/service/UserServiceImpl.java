@@ -1,13 +1,13 @@
 package web.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import web.DAO.UserDAO;
 import web.model.User;
-
+import javax.transaction.Transactional;
 import java.util.List;
 
-@Component
+@Service
+@Transactional
 public class UserServiceImpl implements UserService{
 
     private final UserDAO userDAO;

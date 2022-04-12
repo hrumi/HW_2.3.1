@@ -3,16 +3,16 @@ package web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-;
 import web.model.User;
-import web.service.UserServiceImpl;
+import web.service.UserService;
+
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
 
-    private UserServiceImpl userService;
-    public UserController(UserServiceImpl userService) {
+    private UserService userService;
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -47,31 +47,7 @@ public class UserController {
 
     @PatchMapping ("/{id}")  //отправка данных страницы изменения в БД
     public String EditUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-        userService.updateUser(id - 1, user);
+        userService.updateUser(id, user);
         return "redirect:/users";
     }
-
-
-
-
-//    @PostMapping()
-//    public String controllerAddUser1(@RequestParam("name") String name,
-//                                     @RequestParam("age") int age,
-//                                     Model model) {
-//        User user = new User();
-//        user.setAge(age);
-//        user.setName(name);
-//        userService.addUser(user);
-//        model.addAttribute("user", user);
-//        return  "redirect:/users";
-//    }
-
-
-
-//    @PatchMapping("/{id}")
-//    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-//
-//    }
-
-
 }

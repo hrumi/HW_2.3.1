@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+</head>
+<body>
+
+<!--запросом POST на URL /users передаем объект user-->
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
+    <label for="name">Enter Username</label>
+<!--    *{} доступ к полю user-->
+    <input type="text" th:field="*{name}" id="name">
+    <br>
+    <label for="age">Enter Username</label>
+    <input type="number" th:field="*{age}" id="age">
+    <br>
+<!--    кнопкой передаем данные-->
+    <input type="submit" value="Create user!">
+</form>
+
+</body>
+</html>

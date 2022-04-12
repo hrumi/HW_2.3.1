@@ -12,7 +12,7 @@ public class UserDAO {
     @PersistenceContext
     private  EntityManager entityManager;
 
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers() { //зачем-то подчеркивает User
         return entityManager.createQuery("select u from User u", User.class).getResultList();
 
     }

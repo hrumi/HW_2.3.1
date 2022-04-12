@@ -16,7 +16,7 @@ public class User {
     private String name;
 
     @Column
-    private int age;
+    private Integer age;
 
     public User(){}
 
